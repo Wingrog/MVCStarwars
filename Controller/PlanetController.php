@@ -58,4 +58,15 @@ class PlanetController
 
         header('Location: index.php?controller=default&action=home');
     }
+
+
+
+
+    public function listPlanet()
+    {
+        $planetManager = new PlanetManager();
+        $planets = $planetManager->selectAll();
+        $countPlanets = $planetManager->count();
+        require 'View/list-planet.php';
+    }
 }

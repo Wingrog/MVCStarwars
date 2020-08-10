@@ -9,10 +9,10 @@
                 <a class="nav-link" href="index.php?controller=default&action=home">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Les planètes</a>
+                <a class="nav-link" href="index.php?controller=planet&action=listPlanet">Les planètes</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Les résidents</a>
+                <a class="nav-link" href="index.php?controller=resident&action=listResident">Les résidents</a>
             </li>
         </ul>
     </div>

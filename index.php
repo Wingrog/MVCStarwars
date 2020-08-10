@@ -25,8 +25,12 @@ if (empty($_GET)) {
 } else if ($_GET['controller'] === 'planet' && $_GET['action'] === 'delete' && isset($_GET['id'])) {
     $planetController = new PlanetController;
     $planetController->deletePlanet($_GET['id']);
+} else if ($_GET['controller'] === 'planet' && $_GET['action'] === 'listPlanet') {
+    $planetController = new PlanetController();
+    $planetController->listPlanet();
+} else if ($_GET['controller'] === 'resident' && $_GET['action'] === 'listResident') {
+    $planetController = new ResidentController();
+    $planetController->listResident();
 } else {
     throw new Exception('La page demandée n\'existe pas', 404);
 }
-
-// FAIRE LE ROUTING POUR AFFICHER QUE LES PLANETES ET LES RESIDENTS
