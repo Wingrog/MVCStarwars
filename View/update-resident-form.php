@@ -12,7 +12,7 @@ include('View/Parts/navbar.php');
             <button class="btn btn-warning mb-3">Retour à l'accueil</button>
         </a>
 
-        <form method="post" action="index.php?controller=resident&action=updateResident&id=<?php echo $resident->getId() ?>">
+        <form method="post" action="index.php?controller=resident&action=updateResident&id=<?php echo ($resident->getId()) ?>">
 
             <label>Nom</label>
             <input type="text" name="name" class="form-control" value="<?php echo ($resident->getName()) ?>" required>
