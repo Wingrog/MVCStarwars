@@ -31,6 +31,12 @@ if (empty($_GET)) {
 } else if ($_GET['controller'] === 'resident' && $_GET['action'] === 'listResident') {
     $planetController = new ResidentController();
     $planetController->listResident();
+} else if ($_GET['controller'] === 'resident' && $_GET['action'] === 'residentDetail' && isset($_GET['id'])) {
+    $residentController = new ResidentController;
+    $residentController->residentDetail($_GET['id']);
+} else if ($_GET['controller'] === 'resident' && $_GET['action'] === 'delete' && isset($_GET['id'])) {
+    $residentController = new ResidentController;
+    $residentController->deleteResident($_GET['id']);
 } else {
     throw new Exception('La page demandée n\'existe pas', 404);
 }

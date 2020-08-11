@@ -8,7 +8,7 @@ include('View/Parts/navbar.php');
     <div class="text-center">
         <h2 class="text-center mt-5 mb-3">Détail de la planète <?php echo ($planet->getName()) ?></h2>
         <a href="index.php?controller=default&action=home">
-            <button class="btn btn-warning mb-5">Retour à la liste des planètes</button>
+            <button class="btn btn-warning mb-5">Retour à l'accueil</button>
         </a>
     </div>
 

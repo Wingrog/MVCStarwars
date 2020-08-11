@@ -22,9 +22,9 @@
                         <td><?php echo $resident->getName() ?></td>
                         <td><?php echo $resident->getPlanet_id() ?></td>
                         <td>
-                            <a class="btn btn-primary mr-2" href="#">Détails</a>
+                            <a class="btn btn-primary mr-2" href="index.php?controller=resident&action=residentDetail&id=<?php echo $resident->getId() ?>">Détails</a>
                             <a class=" btn btn-warning mr-2" href="#">Editer</a>
-                            <a class="btn btn-danger" href="#">Supprimer</a>
+                            <a class="btn btn-danger" href="index.php?controller=resident&action=delete&id=<?php echo $resident->getId() ?>">Supprimer</a>
                         </td>
                     </tr>
                 <?php
