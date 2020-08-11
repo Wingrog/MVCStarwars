@@ -24,10 +24,10 @@ include('View/Parts/navbar.php');
         <!-- Affichage des erreurs -->
         <?php
         if (isset($errors)) {
-            echo ('<h2 style="color: red">Liste des erreurs :</h2>
+            echo ('<h2 class="text-danger mt-5">Liste des erreurs :</h2>
 <ol>');
             foreach ($errors as $error) {
-                echo ('<li>' . $error . '</li>');
+                echo ('<li class="font-weight-bold">' . $error . '</li>');
             }
             echo ('</ol>');
         }

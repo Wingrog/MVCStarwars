@@ -30,12 +30,12 @@ if (empty($_GET)) {
     $planetController->deletePlanet($_GET['id']);
 } else if ($_GET['controller'] === 'planet' && $_GET['action'] === 'listPlanet') {
     $planetController = new PlanetController();
-    $planetController->listPlanet();
+    $planetController->listPlanets();
 
     // POUR LES RESIDENTS
 } else if ($_GET['controller'] === 'resident' && $_GET['action'] === 'listResident') {
     $residentController = new ResidentController();
-    $residentController->listResident();
+    $residentController->listResidents();
 } else if ($_GET['controller'] === 'resident' && $_GET['action'] === 'residentDetail' && isset($_GET['id'])) {
     $residentController = new ResidentController;
     $residentController->residentDetail($_GET['id']);
@@ -54,6 +54,8 @@ if (empty($_GET)) {
 } else if ($_GET['controller'] === 'resident' && $_GET['action'] === 'updateResident' && isset($_GET['id'])) {
     $residentController = new ResidentController;
     $residentController->updateResident($_GET['id']);
+
+    //SI AUCUN DES PARAMETRES N'EST TROUVES RETOURNE CETTE ERREUR
 } else {
     throw new Exception('La page demandée n\'existe pas', 404);
 }

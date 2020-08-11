@@ -12,6 +12,15 @@ class PlanetController
         require 'View/detail-planet.php';
     }
 
+    // Fonction utlisée pour afficher toutes les planètes ainsi que le nombre de planètes présentes dans la base de donnée.
+    public function listPlanets()
+    {
+        $planetManager = new PlanetManager();
+        $planets = $planetManager->selectAll();
+        $countPlanets = $planetManager->count();
+        require 'View/list-planet.php';
+    }
+
 
     // Fonction qui va afficher le formulaire d'ajout d'une planète.
     public function addForm()
@@ -27,32 +36,17 @@ class PlanetController
         if (empty($_POST['name'])) {
             $errors[] = 'Le champ nom est requis';
         }
-        if (!ctype_alpha($_POST['name'])) {
-            $errors[] = 'Le champ nom est obligatoirement du texte';
-        }
         if (empty($_POST['status'])) {
             $errors[] = 'Le champ status est requis';
-        }
-        if (!ctype_alpha($_POST['status'])) {
-            $errors[] = 'Le champ status est obligatoirement du texte';
         }
         if (empty($_POST['terrain'])) {
             $errors[] = 'Le champ terrain est requis';
         }
-        if (!ctype_alpha($_POST['terrain'])) {
-            $errors[] = 'Le champ terrain est obligatoirement du texte';
-        }
         if (empty($_POST['allegiance'])) {
             $errors[] = 'Le champ allegiance est requis';
         }
-        if (!ctype_alpha($_POST['allegiance'])) {
-            $errors[] = 'Le champ allegiance est obligatoirement du texte';
-        }
         if (empty($_POST['key_fact'])) {
             $errors[] = 'Le champ key_fact est requis';
-        }
-        if (!ctype_alpha($_POST['key_fact'])) {
-            $errors[] = 'Le champ key_fact est obligatoirement du texte';
         }
         if (empty($_POST['image'])) {
             $errors[] = 'Le champ image est requis';
@@ -91,32 +85,17 @@ class PlanetController
         if (empty($_POST['name'])) {
             $errors[] = 'Le champ nom est requis';
         }
-        if (!ctype_alpha($_POST['name'])) {
-            $errors[] = 'Le champ nom est obligatoirement du texte';
-        }
         if (empty($_POST['status'])) {
             $errors[] = 'Le champ status est requis';
-        }
-        if (!ctype_alpha($_POST['status'])) {
-            $errors[] = 'Le champ status est obligatoirement du texte';
         }
         if (empty($_POST['terrain'])) {
             $errors[] = 'Le champ terrain est requis';
         }
-        if (!ctype_alpha($_POST['terrain'])) {
-            $errors[] = 'Le champ terrain est obligatoirement du texte';
-        }
         if (empty($_POST['allegiance'])) {
             $errors[] = 'Le champ allegiance est requis';
         }
-        if (!ctype_alpha($_POST['allegiance'])) {
-            $errors[] = 'Le champ allegiance est obligatoirement du texte';
-        }
         if (empty($_POST['key_fact'])) {
             $errors[] = 'Le champ key_fact est requis';
-        }
-        if (!ctype_alpha($_POST['key_fact'])) {
-            $errors[] = 'Le champ key_fact est obligatoirement du texte';
         }
         if (empty($_POST['image'])) {
             $errors[] = 'Le champ image est requis';
@@ -137,16 +116,6 @@ class PlanetController
         } else {
             require('View/update-planet-form.php');
         }
-    }
-
-
-    // Fonction utlisée pour afficher toutes les planètes ainsi que le nombre de planètes présentes dans la base de donnée.
-    public function listPlanet()
-    {
-        $planetManager = new PlanetManager();
-        $planets = $planetManager->selectAll();
-        $countPlanets = $planetManager->count();
-        require 'View/list-planet.php';
     }
 
 
