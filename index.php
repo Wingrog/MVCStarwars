@@ -55,7 +55,7 @@ if (empty($_GET)) {
     $residentController = new ResidentController;
     $residentController->updateResident($_GET['id']);
 
-    //SI AUCUN DES PARAMETRES N'EST TROUVES RETOURNE CETTE ERREUR
+    // SI AUCUN DES PARAMETRES N'EST TROUVES RETOURNE CETTE ERREUR
 } else {
     throw new Exception('La page demandée n\'existe pas', 404);
 }
