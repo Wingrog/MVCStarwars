@@ -6,7 +6,7 @@ include('View/Parts/navbar.php');
 
 <body>
     <div class="container">
-        <h1 class="mt-5 mb-3">Modifier une planète</h1>
+        <h1 class="mt-5 mb-3">Modifier la planète <?php echo ($planet->getName()) ?></h1>
 
         <a href="index.php?controller=default&action=home">
             <button class="btn btn-warning mb-3">Retour à l'accueil</button>
