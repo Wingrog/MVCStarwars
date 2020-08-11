@@ -22,11 +22,39 @@ class PlanetController
     // Fonction pour ajouter une planète à la base de donnée elle est déclenchée via le formulaire (form action).
     public function addPlanet()
     {
-        $planet = new Planet(null, $_POST['name'], $_POST['status'], $_POST['terrain'], $_POST['allegiance'], $_POST['key_fact'], $_POST['image']);
-        $planetManager = new PlanetManager();
-        $planetManager->insert($planet);
-        header('Location: index.php?controller=default&action=home');
+        // Vérification des champs du formulaire
+        $errors = [];
+        if (empty($_POST['name'])) {
+            $errors[] = 'Le champ nom est requis';
+        }
+        if (empty($_POST['status'])) {
+            $errors[] = 'Le champ status est requis';
+        }
+        if (empty($_POST['terrain'])) {
+            $errors[] = 'Le champ terrain est requis';
+        }
+        if (empty($_POST['allegiance'])) {
+            $errors[] = 'Le champ allegiance est requis';
+        }
+        if (empty($_POST['key_fact'])) {
+            $errors[] = 'Le champ key_fact est requis';
+        }
+        if (empty($_POST['image'])) {
+            $errors[] = 'Le champ image est requis';
+        }
+
+
+        if (count($errors) === 0) {
+            $planet = new Planet(null, $_POST['name'], $_POST['status'], $_POST['terrain'], $_POST['allegiance'], $_POST['key_fact'], $_POST['image']);
+            $planetManager = new PlanetManager();
+            $planetManager->insert($planet);
+            header('Location: index.php?controller=default&action=home');
+        } else {
+            require('View/insert-planet-form.php');
+        }
     }
+
+
 
 
     // Fonction pour supprimer une planète à la base de donnée elle est déclenchée via le bouton supprimer (dans tab-planet.php).
@@ -54,17 +82,42 @@ class PlanetController
         $planetManager = new PlanetManager();
         $planet = $planetManager->select($id);
 
+        // Vérification des champs du formulaire
+        $errors = [];
+        if (empty($_POST['name'])) {
+            $errors[] = 'Le champ nom est requis';
+        }
+        if (empty($_POST['status'])) {
+            $errors[] = 'Le champ status est requis';
+        }
+        if (empty($_POST['terrain'])) {
+            $errors[] = 'Le champ terrain est requis';
+        }
+        if (empty($_POST['allegiance'])) {
+            $errors[] = 'Le champ allegiance est requis';
+        }
+        if (empty($_POST['key_fact'])) {
+            $errors[] = 'Le champ key_fact est requis';
+        }
+        if (empty($_POST['image'])) {
+            $errors[] = 'Le champ image est requis';
+        }
 
-        $planet->setName($_POST['name']);
-        $planet->setStatus($_POST['status']);
-        $planet->setTerrain($_POST['terrain']);
-        $planet->setAllegiance($_POST['allegiance']);
-        $planet->setKey_fact($_POST['key_fact']);
-        $planet->setImage($_POST['image']);
-        $planetManager->update($planet);
 
+        if (count($errors) === 0) {
 
-        header('Location: index.php?controller=default&action=home');
+            $planet->setName($_POST['name']);
+            $planet->setStatus($_POST['status']);
+            $planet->setTerrain($_POST['terrain']);
+            $planet->setAllegiance($_POST['allegiance']);
+            $planet->setKey_fact($_POST['key_fact']);
+            $planet->setImage($_POST['image']);
+            $planetManager->update($planet);
+
+            header('Location: index.php?controller=default&action=home');
+        } else {
+            require('View/update-planet-form.php');
+        }
     }
 
 

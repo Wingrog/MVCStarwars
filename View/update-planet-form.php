@@ -15,19 +15,32 @@ include('View/Parts/navbar.php');
         <form method="post" action="index.php?controller=planet&action=updatePlanet&id=<?php echo ($planet->getId()) ?>">
 
             <label>Nom</label>
-            <input type=" text" name="name" class="form-control" value="<?php echo ($planet->getName()) ?>" required>
+            <input type=" text" name="name" class="form-control" value="<?php echo ($planet->getName()) ?>">
             <label>Status</label>
-            <input type="text" name="status" class="form-control" value="<?php echo ($planet->getStatus()) ?>" required>
+            <input type="text" name="status" class="form-control" value="<?php echo ($planet->getStatus()) ?>">
             <label>Terrain</label>
-            <input type="text" name="terrain" class="form-control" value="<?php echo ($planet->getTerrain()) ?>" required>
+            <input type="text" name="terrain" class="form-control" value="<?php echo ($planet->getTerrain()) ?>">
             <label>Allegiance</label>
-            <input type="text" name="allegiance" class="form-control" value="<?php echo ($planet->getAllegiance()) ?>" required>
+            <input type="text" name="allegiance" class="form-control" value="<?php echo ($planet->getAllegiance()) ?>">
             <label>Key Fact</label>
-            <input type="text" name="key_fact" class="form-control" value="<?php echo ($planet->getKey_fact()) ?>" required>
+            <input type="text" name="key_fact" class="form-control" value="<?php echo ($planet->getKey_fact()) ?>">
             <label>Image</label>
-            <input type="text" name="image" class="form-control" value="<?php echo ($planet->getImage()) ?>" required>
+            <input type="text" name="image" class="form-control" value="<?php echo ($planet->getImage()) ?>">
             <input class="btn btn-success mt-3" type="submit" value="Valider">
         </form>
+
+        <!-- Affichage des erreurs -->
+        <?php
+        if (isset($errors)) {
+            echo ('<h2 style="color: red">Liste des erreurs :</h2>
+<ol>');
+            foreach ($errors as $error) {
+                echo ('<li>' . $error . '</li>');
+            }
+            echo ('</ol>');
+        }
+        ?>
+
     </div>
 </body>
 
