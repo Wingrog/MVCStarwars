@@ -8,7 +8,7 @@
         <!-- On affiche le tableau de résident -->
 
         <?php
-        include('View/Parts/tab-resident.php');
+        include('View/Parts/table-resident.php');
         ?>
 
     </body>

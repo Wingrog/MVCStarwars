@@ -8,7 +8,7 @@
         <!-- On affiche le tableau de planète -->
 
         <?php
-        include('View/Parts/tab-planet.php');
+        include('View/Parts/table-planet.php');
         ?>
 
     </body>
