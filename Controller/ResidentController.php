@@ -55,11 +55,13 @@
             if (empty($_POST['name'])) {
                 $errors[] = 'Le champ nom est requis';
             }
-            if (empty($_POST['planet_id'])) {
-                $errors[] = 'Le champ planet_id est requis';
-            }
             if (!ctype_alpha($_POST['name'])) {
                 $errors[] = 'Le champ nom est obligatoirement du texte';
+            }
+
+
+            if (empty($_POST['planet_id'])) {
+                $errors[] = 'Le champ planet_id est requis';
             }
             if (ctype_alpha($_POST['planet_id'])) {
                 $errors[] = 'Le champ planet_id est obligatoirement des chiffres';

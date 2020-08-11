@@ -27,17 +27,32 @@ class PlanetController
         if (empty($_POST['name'])) {
             $errors[] = 'Le champ nom est requis';
         }
+        if (!ctype_alpha($_POST['name'])) {
+            $errors[] = 'Le champ nom est obligatoirement du texte';
+        }
         if (empty($_POST['status'])) {
             $errors[] = 'Le champ status est requis';
+        }
+        if (!ctype_alpha($_POST['status'])) {
+            $errors[] = 'Le champ status est obligatoirement du texte';
         }
         if (empty($_POST['terrain'])) {
             $errors[] = 'Le champ terrain est requis';
         }
+        if (!ctype_alpha($_POST['terrain'])) {
+            $errors[] = 'Le champ terrain est obligatoirement du texte';
+        }
         if (empty($_POST['allegiance'])) {
             $errors[] = 'Le champ allegiance est requis';
         }
+        if (!ctype_alpha($_POST['allegiance'])) {
+            $errors[] = 'Le champ allegiance est obligatoirement du texte';
+        }
         if (empty($_POST['key_fact'])) {
             $errors[] = 'Le champ key_fact est requis';
+        }
+        if (!ctype_alpha($_POST['key_fact'])) {
+            $errors[] = 'Le champ key_fact est obligatoirement du texte';
         }
         if (empty($_POST['image'])) {
             $errors[] = 'Le champ image est requis';
@@ -52,17 +67,6 @@ class PlanetController
         } else {
             require('View/insert-planet-form.php');
         }
-    }
-
-
-
-
-    // Fonction pour supprimer une planète à la base de donnée elle est déclenchée via le bouton supprimer (dans tab-planet.php).
-    public function deletePlanet($id)
-    {
-        $planetManager = new PlanetManager();
-        $planetManager->delete($id);
-        header('Location: index.php?controller=default&action=home');
     }
 
 
@@ -87,17 +91,32 @@ class PlanetController
         if (empty($_POST['name'])) {
             $errors[] = 'Le champ nom est requis';
         }
+        if (!ctype_alpha($_POST['name'])) {
+            $errors[] = 'Le champ nom est obligatoirement du texte';
+        }
         if (empty($_POST['status'])) {
             $errors[] = 'Le champ status est requis';
+        }
+        if (!ctype_alpha($_POST['status'])) {
+            $errors[] = 'Le champ status est obligatoirement du texte';
         }
         if (empty($_POST['terrain'])) {
             $errors[] = 'Le champ terrain est requis';
         }
+        if (!ctype_alpha($_POST['terrain'])) {
+            $errors[] = 'Le champ terrain est obligatoirement du texte';
+        }
         if (empty($_POST['allegiance'])) {
             $errors[] = 'Le champ allegiance est requis';
         }
+        if (!ctype_alpha($_POST['allegiance'])) {
+            $errors[] = 'Le champ allegiance est obligatoirement du texte';
+        }
         if (empty($_POST['key_fact'])) {
             $errors[] = 'Le champ key_fact est requis';
+        }
+        if (!ctype_alpha($_POST['key_fact'])) {
+            $errors[] = 'Le champ key_fact est obligatoirement du texte';
         }
         if (empty($_POST['image'])) {
             $errors[] = 'Le champ image est requis';
@@ -128,5 +147,14 @@ class PlanetController
         $planets = $planetManager->selectAll();
         $countPlanets = $planetManager->count();
         require 'View/list-planet.php';
+    }
+
+
+    // Fonction pour supprimer une planète à la base de donnée elle est déclenchée via le bouton supprimer (dans tab-planet.php).
+    public function deletePlanet($id)
+    {
+        $planetManager = new PlanetManager();
+        $planetManager->delete($id);
+        header('Location: index.php?controller=default&action=home');
     }
 }
