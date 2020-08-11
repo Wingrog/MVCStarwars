@@ -53,8 +53,16 @@ class PlanetController
     {
         $planetManager = new PlanetManager();
         $planet = $planetManager->select($id);
-        $planet = new Planet($id, $_POST['name'], $_POST['status'], $_POST['terrain'], $_POST['allegiance'], $_POST['key_fact'], $_POST['image']);
+
+
+        $planet->setName($_POST['name']);
+        $planet->setStatus($_POST['status']);
+        $planet->setTerrain($_POST['terrain']);
+        $planet->setAllegiance($_POST['allegiance']);
+        $planet->setKey_fact($_POST['key_fact']);
+        $planet->setImage($_POST['image']);
         $planetManager->update($planet);
+
 
         header('Location: index.php?controller=default&action=home');
     }

@@ -50,14 +50,11 @@ class ResidentManager extends DbManager
     public function update(Resident $resident)
     {
         $name = $resident->getName();
-        $planet_id = $resident->getPlanet_id();
         $id = $resident->getId();
 
-        $requete = $this->bdd->prepare("UPDATE resident SET name =?, status = ?, planet_id = ? WHERE id = ?");
+        $requete = $this->bdd->prepare("UPDATE resident SET name =? WHERE id = ?");
         $requete->bindParam(1, $name);
-        $requete->bindParam(2, $status);
-        $requete->bindParam(3, $planet_id);
-        $requete->bindParam(4, $id);
+        $requete->bindParam(2, $id);
         $requete->execute();
     }
 

@@ -37,6 +37,18 @@ if (empty($_GET)) {
 } else if ($_GET['controller'] === 'resident' && $_GET['action'] === 'delete' && isset($_GET['id'])) {
     $residentController = new ResidentController;
     $residentController->deleteResident($_GET['id']);
+} else if ($_GET['controller'] === 'resident' && $_GET['action'] === 'addForm') {
+    $residentController = new ResidentController();
+    $residentController->addForm();
+} else if ($_GET['controller'] === 'resident' && $_GET['action'] === 'addResident') {
+    $planetController = new ResidentController();
+    $planetController->addResident();
+} else if ($_GET['controller'] === 'resident' && $_GET['action'] === 'updateForm' && isset($_GET['id'])) {
+    $residentController = new ResidentController;
+    $residentController->updateForm($_GET['id']);
+} else if ($_GET['controller'] === 'resident' && $_GET['action'] === 'updateResident' && isset($_GET['id'])) {
+    $residentController = new ResidentController;
+    $residentController->updateResident($_GET['id']);
 } else {
     throw new Exception('La page demandée n\'existe pas', 404);
 }

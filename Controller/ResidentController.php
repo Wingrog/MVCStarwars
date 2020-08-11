@@ -34,4 +34,45 @@
             $residentManager->delete($id);
             header('Location: index.php?controller=default&action=home');
         }
+
+
+
+
+        // Fonction qui va afficher le formulaire d'ajout d'un resident.
+        public function addForm()
+        {
+            require 'View/insert-resident-form.php';
+        }
+
+
+        // Fonction pour ajouter un résident à la base de donnée elle est déclenchée via le formulaire (form action).
+        public function addResident()
+        {
+            $resident = new Resident(null, $_POST['name'], $_POST['planet_id']);
+            $residentManager = new ResidentManager();
+            $residentManager->insert($resident);
+            header('Location: index.php?controller=default&action=home');
+        }
+
+
+        // Fonction qui va afficher le formulaire pour modifier un resident selon son ID.
+        public function updateForm($id)
+        {
+            $residentManager = new ResidentManager();
+            $resident = $residentManager->select($id);
+
+            require 'View/update-resident-form.php';
+        }
+
+        // Fonction pour modifier un résident à la base de donnée elle est déclenchée via le formulaire de modification (form action).
+        public function updateResident($id)
+        {
+            $residentManager = new ResidentManager();
+            $resident = $residentManager->select($id);
+
+            $resident->setName($_POST['name']);
+            $residentManager->update($resident);
+
+            header('Location: index.php?controller=default&action=home');
+        }
     }
