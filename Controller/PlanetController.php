@@ -29,7 +29,7 @@ class PlanetController
     }
 
 
-    // Fonction pour supprimer une planète à la base de donnée elle est déclenchée via le bouton supprimer (dans home.php).
+    // Fonction pour supprimer une planète à la base de donnée elle est déclenchée via le bouton supprimer (dans tab-planet.php).
     public function deletePlanet($id)
     {
         $planetManager = new PlanetManager();

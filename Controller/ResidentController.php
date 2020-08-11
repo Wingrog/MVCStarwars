@@ -16,6 +16,7 @@
 
 
 
+        // Fonction pour afficher la liste de tous les residents ainsi que le nombre enregistré en base de donnée.
         public function listResident()
         {
             $residentManager = new ResidentManager();
@@ -26,7 +27,7 @@
 
 
 
-        // Fonction pour supprimer une planète à la base de donnée elle est déclenchée via le bouton supprimer (dans home.php).
+        // Fonction pour supprimer un résident à la base de donnée elle est déclenchée via le bouton supprimer (dans tab-resident.php).
         public function deleteResident($id)
         {
             $residentManager = new ResidentManager();
