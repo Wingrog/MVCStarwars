@@ -2,11 +2,14 @@
 // On met bien le fichier include.php dans le routeur (index.php) et seulement ici.
 require 'include.php';
 
+// REDIRECTION AUTOMATIQUE
 if (empty($_GET)) {
     header('Location: index.php?controller=default&action=home');
 } else if ($_GET['controller'] === 'default' && $_GET['action'] === 'home') {
     $planetController = new DefaultController();
     $planetController->home();
+
+    // POUR LES PLANETES
 } else if ($_GET['controller'] === 'planet' && $_GET['action'] === 'planetDetail' && isset($_GET['id'])) {
     $planetController = new PlanetController;
     $planetController->planeteDetail($_GET['id']);
@@ -28,9 +31,11 @@ if (empty($_GET)) {
 } else if ($_GET['controller'] === 'planet' && $_GET['action'] === 'listPlanet') {
     $planetController = new PlanetController();
     $planetController->listPlanet();
+
+    // POUR LES RESIDENTS
 } else if ($_GET['controller'] === 'resident' && $_GET['action'] === 'listResident') {
-    $planetController = new ResidentController();
-    $planetController->listResident();
+    $residentController = new ResidentController();
+    $residentController->listResident();
 } else if ($_GET['controller'] === 'resident' && $_GET['action'] === 'residentDetail' && isset($_GET['id'])) {
     $residentController = new ResidentController;
     $residentController->residentDetail($_GET['id']);
@@ -41,8 +46,8 @@ if (empty($_GET)) {
     $residentController = new ResidentController();
     $residentController->addForm();
 } else if ($_GET['controller'] === 'resident' && $_GET['action'] === 'addResident') {
-    $planetController = new ResidentController();
-    $planetController->addResident();
+    $residentController = new ResidentController();
+    $residentController->addResident();
 } else if ($_GET['controller'] === 'resident' && $_GET['action'] === 'updateForm' && isset($_GET['id'])) {
     $residentController = new ResidentController;
     $residentController->updateForm($_GET['id']);
