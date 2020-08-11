@@ -1,8 +1,6 @@
    <?php
     class ResidentController
     {
-
-
         public function listResident()
         {
             $residentManager = new ResidentManager();

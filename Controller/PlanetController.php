@@ -60,8 +60,7 @@ class PlanetController
     }
 
 
-
-
+    // Fonction utlisée pour afficher toutes les planètes ainsi que le nombre de planètes présentes dans la base de donnée.
     public function listPlanet()
     {
         $planetManager = new PlanetManager();
