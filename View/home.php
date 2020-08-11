@@ -6,8 +6,8 @@ include('View/Parts/navbar.php');
 <body>
 
     <?php
-    include('View/Parts/form-planet.php');
-    include('View/Parts/form-resident.php');
+    include('View/Parts/tab-planet.php');
+    include('View/Parts/tab-resident.php');
     ?>
 
 </body>

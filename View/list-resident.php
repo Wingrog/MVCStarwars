@@ -1,5 +1,16 @@
     <?php
     include('View/Parts/header.php');
     include('View/Parts/navbar.php');
-    include('View/Parts/form-resident.php');
     ?>
+
+    <body>
+
+        <!-- On affiche le tableau de résident -->
+
+        <?php
+        include('View/Parts/tab-resident.php');
+        ?>
+
+    </body>
+
+    </html>
