@@ -16,7 +16,7 @@ include('View/Parts/navbar.php');
     <div class="container col-6 bg-dark">
         <div class="card-body text-white text-center">
             <h5 class="card-title"><?php echo ($resident->getName()) ?></h5>
-            <p class="card-text"><?php echo ($resident->getPlanet_id()) ?></p>
+            <p class="card-text">Le résident est sur la planète qui à l'ID <?php echo ($resident->getPlanet_id()) ?></p>
         </div>
     </div>
 
