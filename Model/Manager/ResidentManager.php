@@ -6,6 +6,8 @@ class ResidentManager extends DbManager
         parent::__construct();
     }
 
+
+    // Fonction pour afficher tous les résidents de la base de donnée
     public function selectAll()
     {
         $residents = [];
@@ -17,6 +19,8 @@ class ResidentManager extends DbManager
         return $residents;
     }
 
+
+    // Fonction pour ajouter un résident à la base de donnée
     public function insert(Resident $resident)
     {
         $name = $resident->getName();
@@ -29,13 +33,8 @@ class ResidentManager extends DbManager
         $resident->setId($this->bdd->lastInsertId());
     }
 
-    public function delete($id)
-    {
-        $requete = $this->bdd->prepare("DELETE FROM resident where id = ?");
-        $requete->bindParam(1, $id);
-        $requete->execute();
-    }
 
+    // Fonction pour selectionner un résident selon son ID à la base de donnée
     public function select($id)
     {
         $requete = $this->bdd->prepare("SELECT * FROM resident WHERE id=?");
@@ -47,6 +46,8 @@ class ResidentManager extends DbManager
         return $resident;
     }
 
+
+    // Fonction pour modifier un résident à la base de donnée
     public function update(Resident $resident)
     {
         $name = $resident->getName();
@@ -59,6 +60,13 @@ class ResidentManager extends DbManager
     }
 
 
+    // Fonction pour supprimer un résident selon son ID à la base de donnée
+    public function delete($id)
+    {
+        $requete = $this->bdd->prepare("DELETE FROM resident where id = ?");
+        $requete->bindParam(1, $id);
+        $requete->execute();
+    }
 
 
     // Fonction pour afficher le nombre de residents qu'il y à dans la base de donnée (sera utilisée dans le DefaultController)

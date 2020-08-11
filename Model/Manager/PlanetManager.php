@@ -44,15 +44,6 @@ class PlanetManager extends DbManager
     }
 
 
-    // Fonction pour supprimer une planète selon son ID à la base de donnée
-    public function delete($id)
-    {
-        $requete = $this->bdd->prepare("DELETE FROM planets where id = ?");
-        $requete->bindParam(1, $id);
-        $requete->execute();
-    }
-
-
     // Fonction pour selectionner une planète selon son ID à la base de donnée
     public function select($id)
     {
@@ -85,6 +76,15 @@ class PlanetManager extends DbManager
         $requete->bindParam(5, $key_fact);
         $requete->bindParam(6, $image);
         $requete->bindParam(7, $id);
+        $requete->execute();
+    }
+
+
+    // Fonction pour supprimer une planète selon son ID à la base de donnée
+    public function delete($id)
+    {
+        $requete = $this->bdd->prepare("DELETE FROM planets where id = ?");
+        $requete->bindParam(1, $id);
         $requete->execute();
     }
 
