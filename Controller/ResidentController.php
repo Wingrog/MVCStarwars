@@ -5,7 +5,7 @@
 
         // Toutes ses fonctions seront à utiliser dans notre routeur index.php
 
-        // Fonction pour afficher le détail d'une planète.
+        // Fonction pour afficher le détail d'un résident.
         public function residentDetail($id)
         {
             $residentManager = new ResidentManager;
